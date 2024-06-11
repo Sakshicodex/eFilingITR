@@ -100,9 +100,17 @@ const documents = [
   "GST Registration Number Details, if any",
 ];
 
+const splitDocuments = (docs, columns) => {
+  const perColumn = Math.ceil(docs.length / columns);
+  return new Array(columns).fill().map((_, colIndex) =>
+    docs.slice(colIndex * perColumn, (colIndex + 1) * perColumn)
+  );
+};
+
+
 export function Home() {
   const formRef = useRef(null);
-
+  const columns = splitDocuments(documents, 3);
   const scrollToForm = () => {
     formRef.current.scrollIntoView({ behavior: "smooth" });
   };
@@ -144,9 +152,10 @@ export function Home() {
             ))}
           </div>
           <div className="text-center mt-8 md:mt-12 lg:mt-16">
-            <Typography variant="h5" className="font-extrabold text-blue-gray-900">
-              Prices Starting From: <span className="text-[#600170]">₹ 499/-(plus applicable GST)</span>  Per Return*
-            </Typography>
+          <Typography variant="h5" className="font-extrabold text-blue-gray-900">
+  Prices Starting From: <span style={{ color: '#600170', fontWeight: 'bold', fontSize: '2rem' }}>₹ 499/-</span>(plus applicable GST) Per Return*
+</Typography>
+
           </div>
         </div>
       </section>
@@ -170,35 +179,34 @@ export function Home() {
           </div>
         </div>
       </section>
-      
+
       <section className="bg-white px-4 pb-20 pt-4">
         <div className="container mx-auto">
           <div className="mt-12 md:mt-32 flex flex-col md:flex-row items-center">
             <div className="w-full md:w-7/12 lg:w-5/12 mx-auto px-4 mb-12 md:mb-0">
               <Typography variant="h3" className="mb-3 font-bold text-2xl sm:text-3xl" color="blue-gray">
-                <span className="text-[#600170]">Income Tax Return Filing Services</span>
+                <span className="text-[#600170]">Income Tax Return - Concept</span>
               </Typography>
               <Typography className="mb-8 font-normal text-blue-gray-500 text-base sm:text-lg">
-                Income tax is a tax imposed and collected by the Central Government on a person's annual income. Income tax is calculated at specified rates on the total annual income of a person and paid
-                to the Central Government. The provisions relating to the income tax are governed by the Income-tax Act, of 1961.
+              Income tax is a levy imposed and collected by the Central Government on an individual's annual earnings. This tax is computed at designated rates based on a person's total yearly income and is remitted to the Central Government. The regulations concerning income tax are outlined in the Income-tax Act of 1961.
                 <br />
                 <br />
-                An income Tax (IT) return is the tax document or forms used to file Tax Returns to the Income Tax Department of India. The tax return is usually in a worksheet
-                of set format where the income figures are calculated, and the tax liability is written into the documents.
+                An Income Tax (IT) return is a form or document used to report income and calculate the tax owed to the Income Tax Department of India. Typically formatted as a worksheet, the return includes sections to detail income figures and compute the tax liability.
                 <br />
                 <br />
-                The law states that government forms must be documented yearly for an individual or business that received income during the year,
-                whether through consistent pay (compensation), profits, intrigue, capital increase, or different sources.
+                According to the law, individuals or businesses that receive income from various sources such as wages, profits, interest, capital gains, or other means must file these forms annually.
               </Typography>
               <Typography variant="h5" color="blue-gray" className="mb-2 font-bold text-xl sm:text-2xl">
-                Advantages of Filing Tax Returns
+                Advantages of  Tax Filing
               </Typography>
               <ul className="list-inside list-disc text-blue-gray-500 text-base sm:text-lg">
-                <li>It boosts your chances of getting a suitable home loan.</li>
-                <li>Some credit card companies demand proof of tax returns before providing a card.</li>
-                <li>As income is kept in records by the tax department, it is easier for people to get into future transactions with minimal complications.</li>
-                <li>Filing IT returns makes you a responsible and woke citizen of India.</li>
-              </ul>
+    <li>Improves your chances of getting a home loan.</li>
+    <li>Credit card companies usually need proof of tax returns before giving you a card.</li>
+    <li>Keeping income records with the tax department makes future transactions simpler and less stressful.</li>
+    <li>Filing tax returns shows you are a responsible and aware citizen of India.</li>
+    <li>Speeds up visa processing.</li>
+    <li>Allows you to claim a refund for excess tax payments.</li>
+</ul>
             </div>
             <div className="w-full md:w-5/12 lg:w-4/12 mx-auto px-4 mt-12 md:mt-0 animate-slide-in-right" style={{ animation: "slide-in-right 1s ease-out" }}>
               <Card className="shadow-lg border shadow-gray-500/10 rounded-lg">
@@ -210,7 +218,7 @@ export function Home() {
                     Top Notch Services
                   </Typography>
                   <Typography className="font-normal text-blue-gray-500 text-base sm:text-lg">
-                  Experience seamless and accurate income tax filing with eFilingITR.com. Our expert team is dedicated to providing reliable and efficient services tailored to your needs.
+                    Experience seamless and accurate income tax filing with eFilingITR.com. Our expert team is dedicated to providing reliable and efficient services tailored to your needs.
                   </Typography>
                 </CardBody>
               </Card>
@@ -240,63 +248,57 @@ export function Home() {
       </section>
 
       <section className="bg-white py-8 sm:py-12 lg:py-16">
-        <div className="container mx-auto px-4">
-          <div className="text-left mb-8 sm:mb-10 lg:mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
-              <span className="text-[#600170]">Documents Required</span> for Income Tax eFiling
-            </h2>
-            <p className="text-gray-700 mt-4 text-base sm:text-lg">
-              Do you want to file your income tax returns but don't know what documents you need? Filing income tax returns can be a daunting task, but it doesn't have to be.
-              Knowing what documents you need to file your income tax returns can help make the process much smoother. We will discuss the documents required for income tax eFiling and how to make sure you have everything you need.
-            </p>
-          </div>
-          <div className="grid  lg:grid-cols-2 gap-6 sm:gap-2 text-gray-700">
-          <ol className="list-decimal list-inside space-y-2 sm:space-y-3">
-
-              {documents.slice(0, Math.ceil(documents.length / 2)).map((doc, index) => (
-                <li key={index} className="text-sm sm:text-base">{doc}</li>
-              ))}
-            </ol>
-            <ol className="list-decimal lg:mt-0 list-inside space-y-2 sm:space-y-3" start={Math.ceil(documents.length / 2) + 1}>
-              {documents.slice(Math.ceil(documents.length / 2)).map((doc, index) => (
-                <li key={index + Math.ceil(documents.length / 2)} className="text-sm sm:text-base">{doc}</li>
-              ))}
-            </ol>
-          </div>
+      <div className="container mx-auto px-4">
+        <div className="text-left mb-8 sm:mb-10 lg:mb-12">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
+            <span className="text-[#600170]">Documents Required</span> for Income Tax eFiling
+          </h2>
+          <p className="text-gray-700 mt-4 text-base sm:text-lg">
+            Do you want to file your income tax returns but don't know what documents you need? Filing income tax returns can be a daunting task, but it doesn't have to be.
+            Knowing what documents you need to file your income tax returns can help make the process much smoother. We will discuss the documents required for income tax eFiling and how to make sure you have everything you need.
+          </p>
         </div>
-      </section>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-gray-700">
+          {documents.map((doc, index) => (
+            <ul key={index} className="list-disc list-inside space-y-2 sm:space-y-3">
+              <li className="text-sm sm:text-base">{doc}</li>
+            </ul>
+          ))}
+        </div>
+      </div>
+    </section>
 
       <section className="relative py-12 sm:py-16 md:py-20 lg:py-24 px-4 bg-customBackground">
-        <div className="container mx-auto">
-          <PageTitle heading="Income Tax e-Filing Services">
-            Simplify your tax season with our expert income tax filing services. Maximize your returns effortlessly with our secure, user-friendly platform. Trust <span style={{ color: '#600170' }}>efilingITR.com</span> for accurate and hassle-free tax solutions.
-          </PageTitle>
-          <div className="mx-auto mt-12 sm:mt-16 md:mt-20 mb-24 sm:mb-32 md:mb-40 lg:mb-48 grid max-w-5xl grid-cols-1 gap-8 sm:gap-12 md:grid-cols-2 lg:grid-cols-3">
-            {contactData.map((item, index) => (
-              <Card
-                key={item.title}
-                color="transparent"
-                shadow={false}
-                className={`text-center text-blue-gray-900 ${
-                  item.title === 'ITR-7'
-                    ? 'md:col-span-2 lg:col-span-1 lg:row-span-2 lg:row-start-2 lg:col-start-2'
-                    : 'md:col-span-1 lg:col-span-1'
-                }`}
-              >
-                <div className="mx-auto mb-4 sm:mb-6 grid h-20 w-20 sm:h-24 sm:w-24 place-items-center bg-blue-gray-900 shadow-lg shadow-gray-500/20 rounded-full overflow-hidden border-4 border-[#600170]">
-                  <img src={item.image} alt={item.title} className="w-full h-full hover:scale-110 object-cover" />
-                </div>
-                <Typography variant="h5" color="blue-gray" className="mb-2">
-                  {item.title}
-                </Typography>
-                <Typography className="font-normal text-blue-gray-500 text-sm sm:text-base">
-                  {item.description}
-                </Typography>
-              </Card>
-            ))}
+  <div className="container mx-auto">
+    <PageTitle heading="Income Tax e-Filing Services">
+      Simplify your tax season with our expert income tax filing services. Maximize your returns effortlessly with our secure, user-friendly platform. Trust <span style={{ color: '#600170' }}>efilingITR.com</span> for accurate and hassle-free tax solutions.
+    </PageTitle>
+    <div className="mx-auto mt-12 sm:mt-16 md:mt-20 mb-24 sm:mb-32 md:mb-40 lg:mb-48 grid max-w-5xl grid-cols-1 gap-8 sm:gap-12 md:grid-cols-2 lg:grid-cols-3">
+      {contactData.map((item, index) => (
+        <Card
+          key={item.title}
+          color="transparent"
+          shadow={false}
+          className={`text-center text-blue-gray-900 ${
+            item.title === 'ITR-7'
+              ? 'md:col-span-2 lg:col-span-1 lg:row-start-3 lg:col-start-2'
+              : 'md:col-span-1 lg:col-span-1'
+          }`}
+        >
+          <div className="mx-auto mb-4 sm:mb-6 grid h-20 w-20 sm:h-24 sm:w-24 place-items-center bg-blue-gray-900 shadow-lg shadow-gray-500/20 rounded-full overflow-hidden border-4 border-[#600170]">
+            <img src={item.image} alt={item.title} className="w-full h-full hover:scale-110 object-cover" />
           </div>
-        </div>
-      </section>
+          <Typography variant="h5" color="blue-gray" className="mb-2">
+            {item.title}
+          </Typography>
+          <Typography className="font-normal text-blue-gray-500 text-sm sm:text-base">
+            {item.description}
+          </Typography>
+        </Card>
+      ))}
+    </div>
+  </div>
+</section>
 
       <section className="relative py-12 sm:py-16 md:py-20 lg:py-24 px-4 bg-white">
         <div className="container mx-auto flex flex-col md:flex-row items-center">

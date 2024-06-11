@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 const FreeDemoForm = () => {
-  const [formData, setFormData] = useState({
+  const initialFormData = {
     name: '',
     phone: '',
     financialYear: '',
     email: '',
-  });
+  };
+
+  const [formData, setFormData] = useState(initialFormData);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -20,8 +22,9 @@ const FreeDemoForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/submit', formData);
+      await axios.post('https://plankton-app-2-vc732.ondigitalocean.app/submit', formData);
       alert('Data saved to Google Sheets');
+      setFormData(initialFormData); // Reset form fields
     } catch (error) {
       console.error('Error saving data to Google Sheets', error);
       alert('Error saving data to Google Sheets');
