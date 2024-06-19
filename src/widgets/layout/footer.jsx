@@ -5,26 +5,27 @@ const year = new Date().getFullYear();
 
 export function Footer({ title, description, socials, menus, copyright }) {
   return (
-    <footer className=" bg-customBackground relative px-4 pt-8 pb-6">
+    <footer className="bg-customBackground relative px-4 pt-8 pb-6">
       <div className="container mx-auto">
         <div className="flex flex-wrap pt-6 text-center lg:text-left">
           <div className="w-full px-4 lg:w-6/12">
             <Typography variant="h4" className="mb-4" color="blue-gray">
               {title}
             </Typography>
-            
+
             <div className="mx-auto mt-6 mb-8 flex justify-center gap-2 md:mb-0 lg:justify-start">
-              {socials.map(({ color, name, path }) => (
+              {socials.map(({ color, name, path, icon }) => (
                 <a
                   key={name}
                   href={path}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <IconButton color="white" className="rounded-full shadow-none bg-transparent">
-                    <Typography color={color}>
-                      <i className={`fa-brands fa-${name}`} />
-                    </Typography>
+                  <IconButton
+                    color="white"
+                    className="rounded-full shadow-none bg-transparent"
+                  >
+                    <img src={icon} alt={name} className="w-6 h-6" />
                   </IconButton>
                 </a>
               ))}
@@ -77,7 +78,7 @@ export function Footer({ title, description, socials, menus, copyright }) {
 }
 
 Footer.defaultProps = {
-  title: "EfillingITR",
+  title: "eFilingITR",
   description:
     "Easy to use React components for Tailwind CSS and Material Design.",
   socials: [
@@ -85,37 +86,38 @@ Footer.defaultProps = {
       color: "gray",
       name: "twitter",
       path: "https://www.twitter.com/creativetim",
+      icon: "/img/twitter.png", // Add the path to your PNG image
     },
     {
       color: "gray",
-      name: "youtube",
-      path: "https://www.youtube.com/channel/UCVyTG4sCw-rOvB9oHkzZD1w",
+      name: "facebook",
+      path: "https://www.facebook.com/profile.php?id=61560779507394&sk=grid",
+      icon: "/img/facebook.png", // Add the path to your PNG image
     },
     {
       color: "gray",
       name: "instagram",
-      path: "https://www.instagram.com/creativetimofficial/",
+      path: "https://www.instagram.com/efilingitr/",
+      icon: "/img/instagram.png", // Add the path to your PNG image
     },
     {
       color: "black",
-      name: "github",
+      name: "linkedin",
       path: "https://github.com/creativetimofficial/material-tailwind",
+      icon: "/img/linkedin.png", // Add the path to your PNG image
     },
   ],
   menus: [
-  
-    
+    // Your menu items
   ],
   copyright: (
     <>
-      Copyright © {year} EfillingITR
+      Copyright © {year} eFilingITR
       <a
         href="https://www.creative-tim.com?ref=mtk"
         target="_blank"
         className="text-blue-gray-500 transition-colors hover:text-blue-500"
-      >
-        
-      </a>
+      ></a>
       .
     </>
   ),

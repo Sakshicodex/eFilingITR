@@ -7,6 +7,8 @@ import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import nodemailer from 'nodemailer';
 import dotenv from 'dotenv';
+import axios from 'axios';
+import FormData from 'form-data';
 
 dotenv.config();
 
@@ -69,18 +71,49 @@ app.post('/submit', async (req, res) => {
     transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
         console.error(error);
-        res.status(500).send('Error saving data to Google Sheets and sending email');
+        res.status(500).send('Error sending email');
+        return;
       } else {
         console.log('Email sent: ' + info.response);
-        res.status(200).send('Data saved to Google Sheets and email sent');
       }
     });
+
+    // Send data to CRM
+    const crmData = new FormData();
+    crmData.append('email', email);
+    crmData.append('mobile', phone);
+    crmData.append('contact_person', name);
+    crmData.append('company_name', ''); // Add appropriate company name if available
+    crmData.append('country', 'India'); // Adjust if the country is dynamic
+    crmData.append('product_service', ''); // Add appropriate product/service if available
+    crmData.append('describe_requirement', 'Testing'); // Adjust as needed
+    crmData.append('source', 'efilingitr.com');
+
+    const crmConfig = {
+      method: 'post',
+      maxBodyLength: Infinity,
+      url: 'https://lmsbaba.com/capture/website/88b94a718fd1a72c19332f93adcb7669', 
+      headers: { 
+        'Cookie': 'ci_session=gdqken562kt883umvqd64f15mcare82t', 
+        ...crmData.getHeaders()
+      },
+      data: crmData,
+    };
+
+    const crmResponse = await axios.request(crmConfig);
+    console.log('CRM Response:', crmResponse.data);
+
+    if (crmResponse.data && crmResponse.data.status === 'success') {
+      res.status(200).send('Data saved to Google Sheets and CRM, and email sent');
+    } else {
+      console.error('CRM Error:', crmResponse.data);
+      res.status(500).send('Error saving data to CRM');
+    }
   } catch (error) {
     console.error(error);
-    res.status(500).send('Error saving data to Google Sheets');
+    res.status(500).send('Error saving data to Google Sheets and CRM');
   }
 });
-
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

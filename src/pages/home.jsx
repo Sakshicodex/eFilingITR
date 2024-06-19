@@ -117,27 +117,36 @@ export function Home() {
 
   return (
     <>
-      <div className="relative flex flex-col min-h-screen content-center items-center justify-center pt-16 pb-32 overflow-y-auto">
-        <div className="absolute top-0 h-full w-full bg-[url('/img/background-3.png')] bg-cover bg-center" />
-        <div className="absolute top-0 h-full w-full bg-[#600170]/60 bg-cover bg-center" />
-        <div className="max-w-8xl container relative mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col items-center justify-center lg:flex-row lg:justify-between">
-            <div className="w-full lg:w-6/12 text-center lg:text-left mb-10 lg:mb-0">
-              <Typography
-                variant="h1"
-                color="white"
-                className="mb-6 font-black whitespace-pre-wrap break-words text-4xl sm:text-5xl lg:text-6xl"
-              >
-                Easily File Your Tax Return with EfilingITR -
-                <span className="ml-2 text-hoverBackground">Your Expert ITR Filing Partner</span>
-              </Typography>
-            </div>
-            <div className="w-full lg:w-6/12 mt-10 lg:mt-0" ref={formRef}>
-              <FreeDemoForm />
-            </div>
-          </div>
-        </div>
+<div className="relative flex flex-col min-h-screen content-center items-center  pb-16 sm:pt-8 sm:pb-32 overflow-y-auto">
+<div className="absolute top-0 h-full w-full bg-[url('/img/background-3.png')] bg-cover bg-center" />
+  <div className="absolute top-0 h-full w-full bg-[#600170]/60 bg-cover bg-center" />
+  <div className="max-w-8xl container relative mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-center mt-4 sm:mt-8">
+      <Typography variant="h5" className="font-extrabold text-white text-lg sm:text-xl md:text-2xl lg:text-3xl">
+        File Your Tax Return with eFilingITR Expert in Just <span className="text-[#FFD51E] font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl"> ₹499*</span>
+      </Typography>
+    </div>
+    <div className="flex flex-col md:flex-row items-center justify-center mt-4 md:mt-12 lg:mt-16">
+      <div className="w-full md:w-1/2 lg:w-6/12 text-center md:text-left md:mb-0 md:pr-8">
+        <Typography
+          variant="h1"
+          color="white"
+          className=" font-black whitespace-pre-wrap break-words text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl bpreplay-bold"
+        >
+          eFilingITR: Quick, Easy, and Accurate Tax Returns
+        </Typography>
       </div>
+      <div className="w-full md:w-1/2 lg:w-6/12 mt-8 md:mt-0" ref={formRef}>
+        <FreeDemoForm />
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+
+
 
       <section className="-mt-32 bg-white px-4 pb-20 pt-4">
         <div className="container mx-auto">
@@ -151,12 +160,7 @@ export function Home() {
               />
             ))}
           </div>
-          <div className="text-center mt-8 md:mt-12 lg:mt-16">
-          <Typography variant="h5" className="font-extrabold text-blue-gray-900">
-  Prices Starting From: <span style={{ color: '#600170', fontWeight: 'bold', fontSize: '2rem' }}>₹ 499/-</span>(plus applicable GST) Per Return*
-</Typography>
 
-          </div>
         </div>
       </section>
 
@@ -188,7 +192,7 @@ export function Home() {
                 <span className="text-[#600170]">Income Tax Return - Concept</span>
               </Typography>
               <Typography className="mb-8 font-normal text-blue-gray-500 text-base sm:text-lg">
-              Income tax is a levy imposed and collected by the Central Government on an individual's annual earnings. This tax is computed at designated rates based on a person's total yearly income and is remitted to the Central Government. The regulations concerning income tax are outlined in the Income-tax Act of 1961.
+                Income tax is a levy imposed and collected by the Central Government on an individual's annual earnings. This tax is computed at designated rates based on a person's total yearly income and is remitted to the Central Government. The regulations concerning income tax are outlined in the Income-tax Act of 1961.
                 <br />
                 <br />
                 An Income Tax (IT) return is a form or document used to report income and calculate the tax owed to the Income Tax Department of India. Typically formatted as a worksheet, the return includes sections to detail income figures and compute the tax liability.
@@ -200,13 +204,13 @@ export function Home() {
                 Advantages of  Tax Filing
               </Typography>
               <ul className="list-inside list-disc text-blue-gray-500 text-base sm:text-lg">
-    <li>Improves your chances of getting a home loan.</li>
-    <li>Credit card companies usually need proof of tax returns before giving you a card.</li>
-    <li>Keeping income records with the tax department makes future transactions simpler and less stressful.</li>
-    <li>Filing tax returns shows you are a responsible and aware citizen of India.</li>
-    <li>Speeds up visa processing.</li>
-    <li>Allows you to claim a refund for excess tax payments.</li>
-</ul>
+                <li>Improves your chances of getting a home loan.</li>
+                <li>Credit card companies usually need proof of tax returns before giving you a card.</li>
+                <li>Keeping income records with the tax department makes future transactions simpler and less stressful.</li>
+                <li>Filing tax returns shows you are a responsible and aware citizen of India.</li>
+                <li>Speeds up visa processing.</li>
+                <li>Allows you to claim a refund for excess tax payments.</li>
+              </ul>
             </div>
             <div className="w-full md:w-5/12 lg:w-4/12 mx-auto px-4 mt-12 md:mt-0 animate-slide-in-right" style={{ animation: "slide-in-right 1s ease-out" }}>
               <Card className="shadow-lg border shadow-gray-500/10 rounded-lg">
@@ -248,25 +252,25 @@ export function Home() {
       </section>
 
       <section className="bg-white py-8 sm:py-12 lg:py-16">
-      <div className="container mx-auto px-4">
-        <div className="text-left mb-8 sm:mb-10 lg:mb-12">
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
-            <span className="text-[#600170]">Documents Required</span> for Income Tax eFiling
-          </h2>
-          <p className="text-gray-700 mt-4 text-base sm:text-lg">
-            Do you want to file your income tax returns but don't know what documents you need? Filing income tax returns can be a daunting task, but it doesn't have to be.
-            Knowing what documents you need to file your income tax returns can help make the process much smoother. We will discuss the documents required for income tax eFiling and how to make sure you have everything you need.
-          </p>
+        <div className="container mx-auto px-4">
+          <div className="text-left mb-8 sm:mb-10 lg:mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
+              <span className="text-[#600170]">Documents Required</span> for Income Tax eFiling
+            </h2>
+            <p className="text-gray-700 mt-4 text-base sm:text-lg">
+              Do you want to file your income tax returns but don't know what documents you need? Filing income tax returns can be a daunting task, but it doesn't have to be.
+              Knowing what documents you need to file your income tax returns can help make the process much smoother. We will discuss the documents required for income tax eFiling and how to make sure you have everything you need.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 font-bold text-gray-700">
+            {documents.map((doc, index) => (
+              <ul key={index} className="list-disc list-inside space-y-2 sm:space-y-3">
+                <li className="text-sm sm:text-base">{doc}</li>
+              </ul>
+            ))}
+          </div>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-gray-700">
-          {documents.map((doc, index) => (
-            <ul key={index} className="list-disc list-inside space-y-2 sm:space-y-3">
-              <li className="text-sm sm:text-base">{doc}</li>
-            </ul>
-          ))}
-        </div>
-      </div>
-    </section>
+      </section>
 
       <section className="relative py-12 sm:py-16 md:py-20 lg:py-24 px-4 bg-customBackground">
   <div className="container mx-auto">
@@ -280,7 +284,7 @@ export function Home() {
           color="transparent"
           shadow={false}
           className={`text-center text-blue-gray-900 ${
-            item.title === 'ITR-7'
+            item.image === '/img/itr7.png'
               ? 'md:col-span-2 lg:col-span-1 lg:row-start-3 lg:col-start-2'
               : 'md:col-span-1 lg:col-span-1'
           }`}
