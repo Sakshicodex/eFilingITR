@@ -16,14 +16,14 @@ const Navbar = () => {
           </div>
           <div className="hidden md:flex md:items-center md:space-x-6">
             <a
-              href="tel:+918586870894"
+              href="tel:+918368086068"
               className="flex items-center text-gray-700 mb-2 md:mb-0"
             >
               <img src={phoneIcon} alt="Phone Icon" className="h-5 w-5 mr-2" />
-              Call Us: +91-8708188491
+              Call Us: +91-8368086068
             </a>
             <a
-              href="https://wa.me/918708188491" // WhatsApp link
+              href="https://wa.me/918368086068" // WhatsApp link
               className="flex items-center text-gray-700"
             >
               <img
@@ -36,7 +36,7 @@ const Navbar = () => {
           </div>
           <div className="md:hidden flex flex-col items-start space-y-2">
             <a
-              href="https://wa.me/918708188491" // WhatsApp link
+              href="https://wa.me/918368086068" // WhatsApp link
               className="flex items-center text-gray-700"
             >
               <img
@@ -47,11 +47,11 @@ const Navbar = () => {
               WhatsApp to Chat
             </a>
             <a
-              href="tel:+918586870894"
+              href="tel:+918368086068"
               className="flex items-center text-gray-700"
             >
               <img src={phoneIcon} alt="Phone Icon" className="h-5 w-5 mr-2" />
-              Call Us: +91-8708188491
+              Call Us: +91-8368086068
             </a>
           </div>
         </div>

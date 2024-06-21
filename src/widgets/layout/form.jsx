@@ -23,7 +23,7 @@ const FreeDemoForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('https://plankton-app-2-vc732.ondigitalocean.app/submit', formData); // Ensure this URL is correct
+      await axios.post('https://plankton-app-2-vc732.ondigitalocean.app/submit', formData);
       setShowPopup(true);
       setFormData(initialFormData); // Reset form fields
     } catch (error) {
