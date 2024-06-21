@@ -23,7 +23,7 @@ const FreeDemoForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('https://plankton-app-2-vc732.ondigitalocean.app/submit', formData);
+      await axios.post('https://plankton-app-2-vc732.ondigitalocean.app/submit', formData); // Ensure this URL is correct
       setShowPopup(true);
       setFormData(initialFormData); // Reset form fields
     } catch (error) {
@@ -76,11 +76,11 @@ const FreeDemoForm = () => {
           </select>
         </div>
         <div className="mb-4">
-          <input
+        <input
             type="email"
             name="email"
             placeholder="Your Email*"
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+            pattern="[a-z0-9._%+\\-]+@[a-z0-9.\\-]+\\.[a-z]{2,}$"
             className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#600170] bg-white text-black"
             value={formData.email}
             onChange={handleChange}

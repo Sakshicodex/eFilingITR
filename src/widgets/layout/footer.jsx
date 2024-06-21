@@ -85,7 +85,7 @@ Footer.defaultProps = {
     {
       color: "gray",
       name: "twitter",
-      path: "https://www.twitter.com/creativetim",
+      path: "https://x.com/eFilingITR",
       icon: "/img/twitter.png", // Add the path to your PNG image
     },
     {
@@ -103,7 +103,7 @@ Footer.defaultProps = {
     {
       color: "black",
       name: "linkedin",
-      path: "https://github.com/creativetimofficial/material-tailwind",
+      path: "https://www.linkedin.com/showcase/efilingitr",
       icon: "/img/linkedin.png", // Add the path to your PNG image
     },
   ],

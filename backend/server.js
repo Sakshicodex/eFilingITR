@@ -59,7 +59,10 @@ app.post('/submit', async (req, res) => {
       },
     };
 
-    await sheets.spreadsheets.values.append(request);
+    console.log('Google Sheets Request:', request);
+
+    const response = await sheets.spreadsheets.values.append(request);
+    console.log('Google Sheets Response:', response);
 
     const mailOptions = {
       from: process.env.GMAIL_USER, // sender address (should match the authenticated user)
@@ -70,7 +73,7 @@ app.post('/submit', async (req, res) => {
 
     transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
-        console.error(error);
+        console.error('Email Error:', error);
         res.status(500).send('Error sending email');
         return;
       } else {
@@ -103,14 +106,14 @@ app.post('/submit', async (req, res) => {
     const crmResponse = await axios.request(crmConfig);
     console.log('CRM Response:', crmResponse.data);
 
-    if (crmResponse.data && crmResponse.data.status === 'success') {
+    if (crmResponse.data && crmResponse.data.status === 'SUCCESS') {
       res.status(200).send('Data saved to Google Sheets and CRM, and email sent');
     } else {
       console.error('CRM Error:', crmResponse.data);
       res.status(500).send('Error saving data to CRM');
     }
   } catch (error) {
-    console.error(error);
+    console.error('Google Sheets API Error:', error);
     res.status(500).send('Error saving data to Google Sheets and CRM');
   }
 });

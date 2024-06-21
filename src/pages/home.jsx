@@ -1,9 +1,7 @@
 import React, { useRef } from "react";
 import FreeDemoForm from '../widgets/layout/form';
-
 import Cards from '../widgets/layout/cards';
 import StyledFeatureCard from '../widgets/layout/stepscard';
-
 import { Carousel } from "flowbite-react";
 import {
   Card,
@@ -51,7 +49,6 @@ const cardData = [
     description: 'After Successfully Filed Your ITR Our Representative Help to You For E-Verify Your Income Tax Return.',
   },
 ];
-
 
 const stepsData = [
   {
@@ -107,7 +104,6 @@ const splitDocuments = (docs, columns) => {
   );
 };
 
-
 export function Home() {
   const formRef = useRef(null);
   const columns = splitDocuments(documents, 3);
@@ -117,36 +113,31 @@ export function Home() {
 
   return (
     <>
-<div className="relative flex flex-col min-h-screen content-center items-center  pb-16 sm:pt-8 sm:pb-32 overflow-y-auto">
-<div className="absolute top-0 h-full w-full bg-[url('/img/background-3.png')] bg-cover bg-center" />
-  <div className="absolute top-0 h-full w-full bg-[#600170]/60 bg-cover bg-center" />
-  <div className="max-w-8xl container relative mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="text-center mt-4 sm:mt-8">
-      <Typography variant="h5" className="font-extrabold text-white text-lg sm:text-xl md:text-2xl lg:text-3xl">
-        File Your Tax Return with eFilingITR Expert in Just <span className="text-[#FFD51E] font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl"> ₹499*</span>
-      </Typography>
-    </div>
-    <div className="flex flex-col md:flex-row items-center justify-center mt-4 md:mt-12 lg:mt-16">
-      <div className="w-full md:w-1/2 lg:w-6/12 text-center md:text-left md:mb-0 md:pr-8">
-        <Typography
-          variant="h1"
-          color="white"
-          className=" font-black whitespace-pre-wrap break-words text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl bpreplay-bold"
-        >
-          eFilingITR: Quick, Easy, and Accurate Tax Returns
-        </Typography>
+      <div className="relative flex flex-col min-h-screen content-center items-center  pb-16 sm:pt-8 sm:pb-32 overflow-y-auto">
+        <div className="absolute top-0 h-full w-full bg-[url('/img/background-3.png')] bg-cover bg-center" />
+        <div className="absolute top-0 h-full w-full bg-[#600170]/60 bg-cover bg-center" />
+        <div className="max-w-8xl container relative mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mt-4 sm:mt-8">
+            <Typography variant="h5" className="font-extrabold text-white text-lg sm:text-xl md:text-2xl lg:text-3xl">
+              File Your Tax Return with eFilingITR Expert in Just <span className="text-[#FFD51E] font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl"> ₹499*</span>
+            </Typography>
+          </div>
+          <div className="flex flex-col md:flex-row items-center justify-center mt-4 md:mt-12 lg:mt-16">
+            <div className="w-full md:w-1/2 lg:w-6/12 text-center md:text-left md:mb-0 md:pr-8">
+              <Typography
+                variant="h1"
+                color="white"
+                className=" font-black whitespace-pre-wrap break-words text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl bpreplay-bold"
+              >
+                eFilingITR: Quick, Easy, and Accurate Tax Returns
+              </Typography>
+            </div>
+            <div className="w-full md:w-1/2 lg:w-6/12 mt-8 md:mt-0" ref={formRef}>
+              <FreeDemoForm />
+            </div>
+          </div>
+        </div>
       </div>
-      <div className="w-full md:w-1/2 lg:w-6/12 mt-8 md:mt-0" ref={formRef}>
-        <FreeDemoForm />
-      </div>
-    </div>
-  </div>
-
-
-</div>
-
-
-
 
       <section className="-mt-32 bg-white px-4 pb-20 pt-4">
         <div className="container mx-auto">
@@ -160,7 +151,6 @@ export function Home() {
               />
             ))}
           </div>
-
         </div>
       </section>
 
@@ -273,36 +263,36 @@ export function Home() {
       </section>
 
       <section className="relative py-12 sm:py-16 md:py-20 lg:py-24 px-4 bg-customBackground">
-  <div className="container mx-auto">
-    <PageTitle heading="Income Tax e-Filing Services">
-      Simplify your tax season with our expert income tax filing services. Maximize your returns effortlessly with our secure, user-friendly platform. Trust <span style={{ color: '#600170' }}>efilingITR.com</span> for accurate and hassle-free tax solutions.
-    </PageTitle>
-    <div className="mx-auto mt-12 sm:mt-16 md:mt-20 mb-24 sm:mb-32 md:mb-40 lg:mb-48 grid max-w-5xl grid-cols-1 gap-8 sm:gap-12 md:grid-cols-2 lg:grid-cols-3">
-      {contactData.map((item, index) => (
-        <Card
-          key={item.title}
-          color="transparent"
-          shadow={false}
-          className={`text-center text-blue-gray-900 ${
-            item.image === '/img/itr7.png'
-              ? 'md:col-span-2 lg:col-span-1 lg:row-start-3 lg:col-start-2'
-              : 'md:col-span-1 lg:col-span-1'
-          }`}
-        >
-          <div className="mx-auto mb-4 sm:mb-6 grid h-20 w-20 sm:h-24 sm:w-24 place-items-center bg-blue-gray-900 shadow-lg shadow-gray-500/20 rounded-full overflow-hidden border-4 border-[#600170]">
-            <img src={item.image} alt={item.title} className="w-full h-full hover:scale-110 object-cover" />
+        <div className="container mx-auto">
+          <PageTitle heading="Income Tax e-Filing Services">
+            Simplify your tax season with our expert income tax filing services. Maximize your returns effortlessly with our secure, user-friendly platform. Trust <span style={{ color: '#600170' }}>efilingITR.com</span> for accurate and hassle-free tax solutions.
+          </PageTitle>
+          <div className="mx-auto mt-12 sm:mt-16 md:mt-20 mb-24 sm:mb-32 md:mb-40 lg:mb-48 grid max-w-5xl grid-cols-1 gap-8 sm:gap-12 md:grid-cols-2 lg:grid-cols-3">
+            {contactData.map((item, index) => (
+              <Card
+                key={item.title}
+                color="transparent"
+                shadow={false}
+                className={`text-center text-blue-gray-900 ${
+                  item.image === '/img/itr7.png'
+                    ? 'md:col-span-2 lg:col-span-1 lg:row-start-3 lg:col-start-2'
+                    : 'md:col-span-1 lg:col-span-1'
+                }`}
+              >
+                <div className="mx-auto mb-4 sm:mb-6 grid h-20 w-20 sm:h-24 sm:w-24 place-items-center bg-blue-gray-900 shadow-lg shadow-gray-500/20 rounded-full overflow-hidden border-4 border-[#600170]">
+                  <img src={item.image} alt={item.title} className="w-full h-full hover:scale-110 object-cover" />
+                </div>
+                <Typography variant="h5" color="blue-gray" className="mb-2">
+                  {item.title}
+                </Typography>
+                <Typography className="font-normal text-blue-gray-500 text-sm sm:text-base">
+                  {item.description}
+                </Typography>
+              </Card>
+            ))}
           </div>
-          <Typography variant="h5" color="blue-gray" className="mb-2">
-            {item.title}
-          </Typography>
-          <Typography className="font-normal text-blue-gray-500 text-sm sm:text-base">
-            {item.description}
-          </Typography>
-        </Card>
-      ))}
-    </div>
-  </div>
-</section>
+        </div>
+      </section>
 
       <section className="relative py-12 sm:py-16 md:py-20 lg:py-24 px-4 bg-white">
         <div className="container mx-auto flex flex-col md:flex-row items-center">
